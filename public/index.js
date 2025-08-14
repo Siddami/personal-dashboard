@@ -1,3 +1,4 @@
+// images api fetch
 fetch(
   "https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature"
 )
@@ -13,7 +14,9 @@ fetch(
     document.getElementById("author").textContent = `By: Dodi Achmad`;
   });
 
-fetch("/api/random-quote")
+
+//quotes api fetch
+fetch("https://personal-dashboard-coral.vercel.app/api/random-quote")
   .then((res) => {
     if (!res.ok) {
       throw Error("Something went wrong");
@@ -44,6 +47,7 @@ function getCurrentTime() {
 
 setInterval(getCurrentTime, 1000);
 
+// weather api fetch
 navigator.geolocation.getCurrentPosition((position) => {
   fetch(
     `https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`
