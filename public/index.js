@@ -17,23 +17,17 @@ fetch(
 
 //quotes api fetch
 fetch("https://personal-dashboard-coral.vercel.app/api/random-quote")
-  .then((res) => {
-    if (!res.ok) {
-      throw Error("Something went wrong");
-    }
-    return res.json();
-  })
+  .then((res) => res.json())
   .then((data) => {
-    console.log(data);
     document.getElementById("quote-container").innerHTML = `
-        <h2>Quote of the Day</h2>
-        <p id="time"></p>
-        <quote class="quote">
-            <p>${data.quote} </p>
-            <small>(${data.type})</small>
-        </quote>
-        <span class="quote-author">Author: ${data.author}</span>
-        `;
+      <h2>Quote of the Day</h2>
+      <p id="time"></p>
+      <quote class="quote">
+        <p>${data.quote}</p>
+        <small>(${data.type})</small>
+      </quote>
+      <span class="quote-author">Author: ${data.author}</span>
+    `;
   })
   .catch((err) => console.error(err));
 
